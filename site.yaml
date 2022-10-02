@@ -1,0 +1,8 @@
+---
+- name: "Everything and the kitchen sink"
+  hosts: localhost
+  connection: localhost
+
+  tasks:
+    - name: "Test ansible"
+      ping:

@@ -6,4 +6,8 @@
   tasks:
     - name: "Test ansible"
       ansible.builtin.debug:
-        var: username
+        var: ansible_facts
+
+    - name: "Testing library"
+      yay:
+        update_cache: true

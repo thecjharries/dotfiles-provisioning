@@ -5,4 +5,6 @@ if ! command -v pip; then
     exit 1
 fi
 
-pip install --user ansible
+pip install --user \
+    ansible \
+    ansible-lint

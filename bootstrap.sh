@@ -9,7 +9,3 @@ fi
 pip install --user \
     ansible \
     ansible-lint
-
-# Force an update on the module symlinks
-cd library || exit 1
-ln -sf ansible-yay/yay yay

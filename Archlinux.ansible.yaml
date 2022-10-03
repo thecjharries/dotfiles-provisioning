@@ -1,0 +1,49 @@
+---
+# - name: Archlinux
+#   hosts: localhost
+#   connection: local
+
+#   tasks:
+    - name: Run sudo pacman -Syu
+      become: true
+      ansible.builtin.command:
+        cmd: pacman -Syu
+      changed_when: false
+
+    - name: Run yay -Syu --aur
+      ansible.builtin.command:
+        cmd: yay -Syu --aur
+      changed_when: false
+      tags:
+        - yay
+
+    - name: Install packages
+      ansible.builtin.command:
+        cmd: "yay --noconfirm -S {{ packages | join(' ') }}"
+      register: command_output
+      changed_when: "'\ninstalling' in command_output.stdout or ' installing' in command_output.stdout"
+      tags:
+        - yay
+
+    - name: Set up reflector configuration
+      become: true
+      ansible.builtin.copy:
+        src: files/etc/xdg/reflector/reflector.conf
+        dest: /etc/xdg/reflector/reflector.conf
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+        backup: true
+
+    - name: Ensure reflector.service is enabled
+      become: true
+      ansible.builtin.systemd:
+        name: reflector.service
+        enabled: true
+
+    - name: Ensure reflector.timer is enabled and running
+      become: true
+      ansible.builtin.systemd:
+        name: reflector.timer
+        enabled: true
+        state: started

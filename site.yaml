@@ -16,5 +16,5 @@
       ansible.builtin.user:
         name: "{{ username }}"
         group: "{{ username }}"
-        shell: "/bin/zsh"
+        shell: "/usr/bin/zsh"
       become: true

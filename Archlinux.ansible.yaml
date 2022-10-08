@@ -6,7 +6,7 @@
       changed_when: false
       tags:
         - yay
-        - os
+        - bootstrap
 
     - name: Run yay -Syu --aur
       ansible.builtin.command:
@@ -14,7 +14,7 @@
       changed_when: false
       tags:
         - yay
-        - os
+        - bootstrap
 
     - name: Install packages
       ansible.builtin.command:
@@ -23,6 +23,7 @@
       changed_when: "'\ninstalling' in command_output.stdout or ' installing' in command_output.stdout"
       tags:
         - yay
+        - bootstrap
 
     - name: Set up reflector configuration
       become: true
@@ -34,7 +35,7 @@
         mode: u=rw,g=r,o=r
         backup: true
       tags:
-        - os
+        - bootstrap
 
     - name: Ensure reflector.service is enabled
       become: true
@@ -42,7 +43,7 @@
         name: reflector.service
         enabled: true
       tags:
-        - os
+        - bootstrap
 
     - name: Ensure reflector.timer is enabled and running
       become: true
@@ -51,4 +52,4 @@
         enabled: true
         state: started
       tags:
-        - os
+        - bootstrap

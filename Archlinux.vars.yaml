@@ -43,5 +43,6 @@ packages:
   - xsel
   - zellij
   - zinit-git
+  - zoom
   - zoxide
   - zsh

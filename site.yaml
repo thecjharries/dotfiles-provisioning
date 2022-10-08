@@ -11,3 +11,10 @@
       ansible.builtin.include_tasks: "{{ ansible_facts.os_family }}.ansible.yaml"
       tags:
         - bootstrap
+
+    - name: Ensure user is configured properly
+      ansible.builtin.user:
+        name: "{{ username }}"
+        group: "{{ username }}"
+        shell: "/bin/zsh"
+      become: true

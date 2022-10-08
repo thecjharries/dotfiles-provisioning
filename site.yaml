@@ -12,26 +12,7 @@
       tags:
         - bootstrap
 
-    - name: Ensure user is configured properly
-      ansible.builtin.user:
-        name: "{{ username }}"
-        group: "{{ username }}"
-        shell: "/usr/bin/zsh"
-      become: true
-
-    - name: Generate local ed25519 key
-      community.crypto.openssh_keypair:
-        owner: "{{ username }}"
-        group: "{{ username }}"
-        path: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
-        comment: "{{ username }}@{{ ansible_facts.hostname }}"
-        type: ed25519
-
-    - name: Generate local RSA key
-      community.crypto.openssh_keypair:
-        owner: "{{ username }}"
-        group: "{{ username }}"
-        path: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
-        comment: "{{ username }}@{{ ansible_facts.hostname }}"
-        type: rsa
-        size: 4096
+    - name: Configure user
+      ansible.builtin.include_tasks: user.ansible.yaml
+      tags:
+        - user

@@ -21,3 +21,8 @@
       ansible.builtin.include_tasks: datetime.ansible.yaml
       tags:
         - datetime
+
+    - name: Configure Python
+      ansible.builtin.include_tasks: python.ansible.yaml
+      tags:
+        - python

@@ -16,3 +16,8 @@
       ansible.builtin.include_tasks: user.ansible.yaml
       tags:
         - user
+
+    - name: Configure date and time
+      ansible.builtin.include_tasks: datetime.ansible.yaml
+      tags:
+        - datetime

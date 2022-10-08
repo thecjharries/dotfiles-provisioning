@@ -39,6 +39,7 @@ packages:
   - vde2
   - vim
   - virt-manager
+  - which
   - xclip
   - xsel
   - zellij

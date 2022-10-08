@@ -1,0 +1,30 @@
+---
+- name: Test for timedatectl
+  ansible.builtin.command:
+    cmd: which timedatectl
+  register: timedatectl_exists
+  changed_when: false
+  ignore_errors: true
+  tags:
+    - datetime
+
+- name: Configure timedatectl
+  when: 0 == timedatectl_exists.rc
+  become: true
+  block:
+    - name: Set timezone
+      ansible.builtin.command:
+        cmd: timedatectl set-timezone "America/Chicago"
+      changed_when: false
+
+    - name: Ensure RTC uses UTC
+      ansible.builtin.command:
+        cmd: timedatectl set-local-rtc false
+      changed_when: false
+
+    - name: Ensure NTP
+      ansible.builtin.command:
+        cmd: timedatectl set-ntp true
+      changed_when: false
+  tags:
+    - datetime

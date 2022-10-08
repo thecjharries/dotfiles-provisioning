@@ -1,9 +1,4 @@
 ---
-# - name: Archlinux
-#   hosts: localhost
-#   connection: local
-
-#   tasks:
     - name: Run sudo pacman -Syu
       become: true
       ansible.builtin.command:
@@ -11,6 +6,7 @@
       changed_when: false
       tags:
         - yay
+        - os
 
     - name: Run yay -Syu --aur
       ansible.builtin.command:
@@ -18,6 +14,7 @@
       changed_when: false
       tags:
         - yay
+        - os
 
     - name: Install packages
       ansible.builtin.command:
@@ -36,12 +33,16 @@
         group: root
         mode: u=rw,g=r,o=r
         backup: true
+      tags:
+        - os
 
     - name: Ensure reflector.service is enabled
       become: true
       ansible.builtin.systemd:
         name: reflector.service
         enabled: true
+      tags:
+        - os
 
     - name: Ensure reflector.timer is enabled and running
       become: true
@@ -49,3 +50,5 @@
         name: reflector.timer
         enabled: true
         state: started
+      tags:
+        - os

@@ -7,12 +7,14 @@
     - name: Run sudo pacman -Syu
       become: true
       ansible.builtin.command:
-        cmd: pacman -Syu
+        cmd: pacman --sync --refresh --sysupgrade --noconfirm
       changed_when: false
+      tags:
+        - yay
 
     - name: Run yay -Syu --aur
       ansible.builtin.command:
-        cmd: yay -Syu --aur
+        cmd: yay --sync --refresh --sysupgrade --aur --noconfirm
       changed_when: false
       tags:
         - yay

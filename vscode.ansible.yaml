@@ -1,0 +1,12 @@
+---
+- name: Configure VS Code
+  hosts: localhost
+  connection: local
+  tags:
+    - vscode
+
+  tasks:
+    - name: Install all the extensions
+      ansible.builtin.command:
+        cmd: "code --force --install-extension {{ vscode_extensions | join(' --install-extension ') }}"
+      changed_when: false

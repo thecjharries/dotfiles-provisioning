@@ -17,6 +17,7 @@ packages:
   - go
   - iptables-nft
   - jetbrains-toolbox
+  - jq
   - k9s
   - kubectl
   - kubectx
@@ -37,6 +38,7 @@ packages:
   - qemu-desktop
   - ripgrep
   - seahorse
+  - shellcheck
   - starship
   - terminator
   - terraform

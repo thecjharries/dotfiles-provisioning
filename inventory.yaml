@@ -4,3 +4,24 @@ all:
       ansible_connection: local
       username: cjharries
       yadm_repo: git@github.com:thecjharries/dotfiles-yadm.git
+      vscode_extensions:
+        - 4ops.terraform
+        - bungcip.better-toml
+        - DavidAnson.vscode-markdownlint
+        - EditorConfig.EditorConfig
+        - emeraldwalk.RunOnSave
+        - foxundermoon.shell-format
+        - golang.go
+        - hashicorp.terraform
+        - mads-hartmann.bash-ide-vscode
+        - ms-kubernetes-tools.vscode-kubernetes-tools
+        - ms-python.python
+        - ms-toolsai.jupyter
+        - ms-toolsai.jupyter-keymap
+        - ms-toolsai.jupyter-renderers
+        - redhat.ansible
+        - redhat.vscode-yaml
+        - rust-lang.rust
+        - tfsec.tfsec
+        - timonwong.shellcheck
+        - yzhang.markdown-all-in-one

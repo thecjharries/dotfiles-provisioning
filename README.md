@@ -15,6 +15,7 @@ I tried [Comtrya](https://www.comtrya.dev/). It's great for very simple things. 
 Before I run this, I have to do the following things (in no particular order)
 
 * Create `~/.config/ansible/dotfiles-provisioning-vault` and export its password from my password manager
+* Set up an SSH key for use with my GitHub account
 
 I should probably figure out a spot for this somewhere in the `~/.local` hierarchy for future runs.
 

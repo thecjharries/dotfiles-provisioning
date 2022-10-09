@@ -16,6 +16,7 @@ packages:
   - fzf
   - github-cli
   - go
+  - helm
   - iptables-nft
   - jetbrains-toolbox
   - jq

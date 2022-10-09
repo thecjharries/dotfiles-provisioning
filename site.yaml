@@ -57,11 +57,6 @@
   tags:
     - go
 
-- name: Set up VS Code
-  ansible.builtin.import_playbook: vscode.ansible.yaml
-  tags:
-    - vscode
-
 - name: Set up AWS
   ansible.builtin.import_playbook: aws.ansible.yaml
   tags:

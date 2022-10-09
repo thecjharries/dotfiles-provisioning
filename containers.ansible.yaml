@@ -1,0 +1,88 @@
+---
+- name: Configure container stuff
+  hosts: localhost
+  connection: local
+  tags:
+    - containers
+    - podman
+    - kubernetes
+    - libvirt
+
+  tasks:
+    - name: Add user to libvirt group
+      become: true
+      ansible.builtin.user:
+        user: "{{ username }}"
+        groups:
+          - libvirt
+
+    - name: Start and enable libvirt
+      become: true
+      ansible.builtin.systemd:
+        state: started
+        enabled: true
+        name: libvirtd.service
+
+    - name: Ensure CRI-O plugins directory exists
+      become: true
+      ansible.builtin.file:
+        state: directory
+        path: /etc/crio/crio.conf.d/
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+
+    - name: Drop in CRI-O config
+      become: true
+      ansible.builtin.copy:
+        src: files/etc/crio/crio.conf.d/00-plugin-dir.conf
+        dest: /etc/crio/crio.conf.d/00-plugin-dir.conf
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+        backup: true
+
+    - name: Start and enable CRI-O
+      become: true
+      ansible.builtin.systemd:
+        state: started
+        enabled: true
+        name: crio.service
+
+    - name: Ensure user namespaces
+      become: true
+      ansible.posix.sysctl:
+        name: kernel.unprivileged_userns_clone
+        value: '1'
+        state: present
+
+    - name: Ensure user is in /etc/subuid
+      become: true
+      ansible.builtin.lineinfile:
+        create: true
+        state: present
+        line: "{{ username }}:100000:65536"
+        mode: u=rw,g=r,o=r
+        owner: root
+        group: root
+        path: /etc/subuid
+
+    - name: Ensure user is in /etc/subgid
+      become: true
+      ansible.builtin.lineinfile:
+        create: true
+        state: present
+        line: "{{ username }}:100000:65536"
+        mode: u=rw,g=r,o=r
+        owner: root
+        group: root
+        path: /etc/subu=gid
+
+    - name: Migrate any existing podman containers
+      ansible.builtin.command:
+        cmd: podman system migrate
+      changed_when: false
+
+    # TODO: Add minikube config?
+    # minikube config set driver kvm2
+    # minikube config set container-runtime cri-o

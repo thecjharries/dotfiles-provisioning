@@ -46,3 +46,9 @@
   ansible.builtin.import_playbook: yadm.ansible.yaml
   tags:
     - yadm
+
+- name: Set up containerization stuff
+  ansible.builtin.import_playbook: containers.ansible.yaml
+  tags:
+    - containers
+

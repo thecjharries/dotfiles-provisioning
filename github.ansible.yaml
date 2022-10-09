@@ -42,3 +42,17 @@
           ansible.builtin.command:
             cmd: "gh ssh-key add --title 'github_ed25519@{{ ansible_facts.hostname }}' {{ lookup('env', 'HOME') }}/.ssh/github_ed25519.pub"
           changed_when: false
+
+    - name: Configure GitHub SSH
+      ansible.builtin.blockinfile:
+        path: "{{ lookup('env', 'HOME') }}/.ssh/config"
+        create: true
+        owner: "{{ username }}"
+        group: "{{ username }}"
+        mode: u=rw
+        block: |
+          Host github.com
+              User git
+              Hostname github.com
+              PreferredAuthentications publickey
+              IdentityFile {{ lookup('env', 'HOME') }}/.ssh/github_ed25519

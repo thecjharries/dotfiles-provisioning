@@ -10,6 +10,7 @@
         path: "{{ lookup('env', 'HOME') }}/.config/zsh/plugins"
         owner: "{{ username }}"
         group: "{{ username }}"
+        mode: u=rwx,g=rx,o=rx
       tags:
         - zsh
 

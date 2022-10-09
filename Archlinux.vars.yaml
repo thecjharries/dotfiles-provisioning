@@ -2,6 +2,7 @@
 packages:
   - atuin
   - bridge-utils
+  - chktex
   - cni-plugins
   - code
   - cri-o

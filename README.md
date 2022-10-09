@@ -39,3 +39,5 @@ ansible-playbook <subject>.ansible.yaml
 * Add pre-commit to this repo
 * Add these tools
     * https://github.com/terraform-linters/tflint
+    * https://github.com/johanhaleby/kubetail
+    * https://github.com/rottencandy/vimkubectl

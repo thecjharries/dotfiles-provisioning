@@ -17,7 +17,9 @@ packages:
   - go
   - iptables-nft
   - jetbrains-toolbox
+  - k9s
   - kubectl
+  - kubectx
   - lastpass-cli
   - libvirt
   - minikube

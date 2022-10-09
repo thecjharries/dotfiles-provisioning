@@ -32,7 +32,12 @@
       tags:
         - rust
 
-    - name: Configure zsh
-      ansible.builtin.include_tasks: zsh.ansible.yaml
-      tags:
-        - zsh
+    # - name: Configure zsh
+    #   ansible.builtin.include_tasks: zsh.ansible.yaml
+    #   tags:
+    #     - zsh
+
+- name: Configure zsh
+  ansible.builtin.import_playbook: zsh.ansible.yaml
+  tags:
+    - zsh

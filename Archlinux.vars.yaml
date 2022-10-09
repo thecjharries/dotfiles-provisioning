@@ -13,6 +13,7 @@ packages:
   - flameshot
   - fuse-overlayfs
   - fzf
+  - github-cli
   - go
   - iptables-nft
   - jetbrains-toolbox
@@ -42,6 +43,7 @@ packages:
   - which
   - xclip
   - xsel
+  - yadm
   - zellij
   - zinit-git
   - zoom

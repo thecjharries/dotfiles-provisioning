@@ -1,0 +1,44 @@
+---
+- name: Configure GitHub
+  hosts: localhost
+  vars_files:
+    - secrets.vars.yaml
+  connection: local
+  tags:
+    - github
+
+  tasks:
+    - name: Log into GitHub
+      ansible.builtin.command:
+        cmd: gh auth login --git-protocol ssh --with-token
+      args:
+        stdin: "{{ github_token }}"
+        creates: "{{ lookup('env', 'HOME') }}/.config/gh/hosts.yml"
+      changed_when: false
+      no_log: true
+
+    - name: List GitHub SSH keys
+      ansible.builtin.command:
+        cmd: gh ssh-key list
+      changed_when: false
+      register: github_ssh_keys
+
+    - name: Set GH key fact name
+      ansible.builtin.set_fact:
+        github_ssh_key_name: "github_ed25519@{{ ansible_facts.hostname }}"
+
+    - name: Check for current host key
+      when: "github_ssh_key_name not in github_ssh_keys.stdout" # noqa no-jinja-when
+      block:
+        - name: Generate GitHub ed25519 key
+          community.crypto.openssh_keypair:
+            owner: "{{ username }}"
+            group: "{{ username }}"
+            path: "{{ lookup('env', 'HOME') }}/.ssh/github_ed25519"
+            comment: "{{ username }}@{{ ansible_facts.hostname }}"
+            type: ed25519
+
+        - name: Add SSH key
+          ansible.builtin.command:
+            cmd: "gh ssh-key add --title 'github_ed25519@{{ ansible_facts.hostname }}' {{ lookup('env', 'HOME') }}/.ssh/github_ed25519.pub"
+          changed_when: false

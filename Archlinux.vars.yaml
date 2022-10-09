@@ -1,5 +1,6 @@
 ---
 packages:
+  - act
   - atuin
   - bridge-utils
   - chktex

@@ -12,6 +12,7 @@
     - name: Add user to libvirt group
       become: true
       ansible.builtin.user:
+        append: true
         user: "{{ username }}"
         groups:
           - libvirt

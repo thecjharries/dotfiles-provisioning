@@ -1,0 +1,23 @@
+---
+- name: Configure Go stuff
+  hosts: localhost
+  connection: local
+  tags:
+    - go
+
+  tasks:
+    - name: Install/update go tools
+      ansible.builtin.command:
+        cmd: "go install {{ item }}"
+      changed_when: false
+      loop:
+        - github.com/hashicorp/hcl/v2/cmd/hclfmt@latest
+        # https://golangci-lint.run/usage/install/#install-from-source
+        - github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.0
+        - golang.org/x/tools/cmd/goimports@latest
+        - golang.org/x/tools/cmd/godex@latest
+        - golang.org/x/tools/cmd/gotype@latest
+        # https://terraform-docs.io/user-guide/installation/#go-users
+        - github.com/terraform-docs/terraform-docs@v0.16.0
+        - github.com/aquasecurity/tfsec/cmd/tfsec@latest
+        - github.com/minamijoyo/tfupdate@latest

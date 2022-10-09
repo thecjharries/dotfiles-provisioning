@@ -34,3 +34,8 @@ This won't work on OS-specific things as those are just tasks files.
 ```console
 ansible-playbook <subject>.ansible.yaml
 ```
+
+## TODO
+* Add pre-commit to this repo
+* Add these tools
+    * https://github.com/terraform-linters/tflint

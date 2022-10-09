@@ -11,15 +11,17 @@
         owner: "{{ username }}"
         group: "{{ username }}"
         mode: u=rwx,g=rx,o=rx
+      register: zsh_plugins
       tags:
         - zsh
 
     - name: Install zsh-autocomplete
       ansible.builtin.git: # noqa latest
         recursive: true
-        reference: main
+        version: main
         repo: https://github.com/marlonrichert/zsh-autocomplete.git
         single_branch: true
         update: true
+        dest: "{{ zsh_plugins.path }}/zsh-autocomplete"
       tags:
         - zsh

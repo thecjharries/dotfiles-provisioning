@@ -1,0 +1,15 @@
+---
+- name: Ensure plugins directory exists
+  ansible.builtin.file:
+    state: directory
+    path: "{{ lookup('env', 'HOME') }}/.config/zsh/plugins"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: Install zsh-autocomplete
+  ansible.builtin.git:
+    recursive: true
+    reference: main
+    repo: https://github.com/marlonrichert/zsh-autocomplete.git
+    single_branch: true
+    update: true

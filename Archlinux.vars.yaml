@@ -18,6 +18,7 @@ packages:
   - iptables-nft
   - jetbrains-toolbox
   - kubectl
+  - lastpass-cli
   - libvirt
   - minikube
   - neovim

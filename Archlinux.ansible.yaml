@@ -53,3 +53,9 @@
     state: started
   tags:
     - bootstrap
+
+- name: Run localectl
+  become: true
+  ansible.builtin.command:
+    cmd: localectl set-locale LANG=en_US.UTF-8
+  changed_when: false

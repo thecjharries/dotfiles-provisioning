@@ -36,8 +36,10 @@ ansible-playbook <subject>.ansible.yaml
 ```
 
 ## TODO
+
 * Add pre-commit to this repo
 * Add these tools
-    * https://github.com/terraform-linters/tflint
-    * https://github.com/johanhaleby/kubetail
-    * https://github.com/rottencandy/vimkubectl
+  * [tflint](https://github.com/terraform-linters/tflint)
+  * [kubetail](https://github.com/johanhaleby/kubetail)
+  * [vimkubectl](https://github.com/rottencandy/vimkubectl)
+  * [LaTeX](https://wiki.archlinux.org/title/TeX_Live)

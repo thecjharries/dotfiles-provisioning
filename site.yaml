@@ -52,3 +52,12 @@
   tags:
     - containers
 
+- name: Set up Go
+  ansible.builtin.import_playbook: go.ansible.yaml
+  tags:
+    - go
+
+- name: Set up VS Code
+  ansible.builtin.import_playbook: vscode.ansible.yaml
+  tags:
+    - vscode

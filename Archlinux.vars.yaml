@@ -4,7 +4,6 @@ packages:
   - atuin
   - bridge-utils
   - cni-plugins
-  - code
   - cri-o
   - crictl
   - direnv
@@ -49,6 +48,7 @@ packages:
   - vde2
   - vim
   - virt-manager
+  - visual-studio-code-bin
   - which
   - xclip
   - xsel

@@ -5,6 +5,8 @@
     path: "{{ lookup('env', 'HOME') }}/.config/zsh/plugins"
     owner: "{{ username }}"
     group: "{{ username }}"
+  tags:
+    - zsh
 
 - name: Install zsh-autocomplete
   ansible.builtin.git:
@@ -13,3 +15,5 @@
     repo: https://github.com/marlonrichert/zsh-autocomplete.git
     single_branch: true
     update: true
+  tags:
+    - zsh

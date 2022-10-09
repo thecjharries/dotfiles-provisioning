@@ -1,56 +1,57 @@
 ---
-- name: Check if Rust tools are installed
-  ansible.builtin.command:
-    cmd: which rustup
-  register: rustup_exists
-  changed_when: false
-  ignore_errors: true
-  tags:
-    - rust
+- name: Configure Rust
+  hosts: localhost
+  connection: local
 
-- name: Download and install rustup
-  when: 1 == rustup_exists.rc
-  block:
-    - name: Download rustup
-      ansible.builtin.get_url:
-        dest: /tmp/install-rustup
-        owner: "{{ username }}"
-        mode: u=rwx,g=r,o=r
-        url: https://sh.rustup.rs
-
-    - name: Install Rust
+  tasks:
+    - name: Check if Rust tools are installed
       ansible.builtin.command:
-        cmd: /tmp/install-rustup
-      args:
-        creates: "{{ lookup('env', 'HOME') }}/.cargo/bin/rustup"
+        cmd: which rustup
+      register: rustup_exists
+      changed_when: false
+      ignore_errors: true
+      tags:
+        - rust
 
-    - name: Remove install script
-      ansible.builtin.file:
-        path: /tmp/install-rustup
-        state: absent
-        force: true
-  tags:
-    - rust
+    - name: Download and install rustup
+      when: 1 == rustup_exists.rc
+      tags:
+        - rust
+      block:
+        - name: Download rustup
+          ansible.builtin.get_url:
+            dest: /tmp/install-rustup
+            owner: "{{ username }}"
+            mode: u=rwx,g=r,o=r
+            url: https://sh.rustup.rs
 
-- name: Add necessary components
-  ansible.builtin.command:
-    argv:
-      - rustup
-      - component
-      - add
-      - cargo
-      - clippy
-      - rls
-      - rust-analysis
-      - rust-docs
-      - rust-src
-      - rust-std
-      - rustc
-      - rustfmt
-  changed_when: false
-  tags:
-    - rust
+        - name: Install Rust
+          ansible.builtin.command:
+            cmd: /tmp/install-rustup
+          args:
+            creates: "{{ lookup('env', 'HOME') }}/.cargo/bin/rustup"
 
+        - name: Remove install script
+          ansible.builtin.file:
+            path: /tmp/install-rustup
+            state: absent
+            force: true
 
-
-
+    - name: Add necessary components
+      ansible.builtin.command:
+        argv:
+          - rustup
+          - component
+          - add
+          - cargo
+          - clippy
+          - rls
+          - rust-analysis
+          - rust-docs
+          - rust-src
+          - rust-std
+          - rustc
+          - rustfmt
+      changed_when: false
+      tags:
+        - rust

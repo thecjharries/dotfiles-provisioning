@@ -12,30 +12,25 @@
       tags:
         - bootstrap
 
-    - name: Configure user
-      ansible.builtin.include_tasks: user.ansible.yaml
-      tags:
-        - user
+- name: Configure user
+  ansible.builtin.import_playbook: user.ansible.yaml
+  tags:
+    - user
 
-    - name: Configure date and time
-      ansible.builtin.include_tasks: datetime.ansible.yaml
-      tags:
-        - datetime
+- name: Configure date and time
+  ansible.builtin.import_playbook: datetime.ansible.yaml
+  tags:
+    - datetime
 
-    - name: Configure Python
-      ansible.builtin.include_tasks: python.ansible.yaml
-      tags:
-        - python
+- name: Configure Python
+  ansible.builtin.import_playbook: python.ansible.yaml
+  tags:
+    - python
 
-    - name: Configure Rust
-      ansible.builtin.include_tasks: rust.ansible.yaml
-      tags:
-        - rust
-
-    # - name: Configure zsh
-    #   ansible.builtin.include_tasks: zsh.ansible.yaml
-    #   tags:
-    #     - zsh
+- name: Configure Rust
+  ansible.builtin.import_playbook: rust.ansible.yaml
+  tags:
+    - rust
 
 - name: Configure zsh
   ansible.builtin.import_playbook: zsh.ansible.yaml

@@ -1,21 +1,26 @@
 ---
-- name: Upgrade pip
-  ansible.builtin.pip:
-    name: pip
-    state: latest
-  tags:
-    - python
-    - pip
+- name: Configure python
+  hosts: localhost
+  connection: local
 
-- name: Install important pip packages
-  ansible.builtin.pip:
-    state: latest
-    extra_args: --user
-    name:
-      - asciinema
-      - pipenv
-      - pre-commit
-      - romt
-  tags:
-    - python
-    - pip
+  tasks:
+    - name: Upgrade pip
+      ansible.builtin.pip:
+        name: pip
+        state: latest
+      tags:
+        - python
+        - pip
+
+    - name: Install important pip packages
+      ansible.builtin.pip:
+        state: latest
+        extra_args: --user
+        name:
+          - asciinema
+          - pipenv
+          - pre-commit
+          - romt
+      tags:
+        - python
+        - pip

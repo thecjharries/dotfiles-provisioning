@@ -1,30 +1,35 @@
 ---
-- name: Ensure user is configured properly
-  ansible.builtin.user:
-    name: "{{ username }}"
-    group: "{{ username }}"
-    shell: "/usr/bin/zsh"
-  become: true
-  tags:
-    - user
+- name: Configure user
+  hosts: localhost
+  connection: local
 
-- name: Generate local ed25519 key
-  community.crypto.openssh_keypair:
-    owner: "{{ username }}"
-    group: "{{ username }}"
-    path: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
-    comment: "{{ username }}@{{ ansible_facts.hostname }}"
-    type: ed25519
-  tags:
-    - user
+  tasks:
+    - name: Ensure user is configured properly
+      ansible.builtin.user:
+        name: "{{ username }}"
+        group: "{{ username }}"
+        shell: "/usr/bin/zsh"
+      become: true
+      tags:
+        - user
 
-- name: Generate local RSA key
-  community.crypto.openssh_keypair:
-    owner: "{{ username }}"
-    group: "{{ username }}"
-    path: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
-    comment: "{{ username }}@{{ ansible_facts.hostname }}"
-    type: rsa
-    size: 4096
-  tags:
-    - user
+    - name: Generate local ed25519 key
+      community.crypto.openssh_keypair:
+        owner: "{{ username }}"
+        group: "{{ username }}"
+        path: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+        comment: "{{ username }}@{{ ansible_facts.hostname }}"
+        type: ed25519
+      tags:
+        - user
+
+    - name: Generate local RSA key
+      community.crypto.openssh_keypair:
+        owner: "{{ username }}"
+        group: "{{ username }}"
+        path: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+        comment: "{{ username }}@{{ ansible_facts.hostname }}"
+        type: rsa
+        size: 4096
+      tags:
+        - user

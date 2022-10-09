@@ -1,0 +1,31 @@
+---
+- name: Configure AWS stuff
+  hosts: localhost
+  connection: local
+  tags:
+    - aws
+
+  tasks:
+    - name: Ensure no previous installer exists
+      become: true
+      ansible.builtin.file:
+        path: /tmp/aws
+        state: absent
+
+    - name: Download and extract the installer
+      ansible.builtin.unarchive:
+        src: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+        remote_src: true
+        dest: /tmp
+
+    - name: Run the installer
+      become: true
+      ansible.builtin.command:
+        cmd: /tmp/aws/install --update
+      changed_when: false
+
+    - name: Clean up installer
+      become: true
+      ansible.builtin.file:
+        path: /tmp/aws
+        state: absent

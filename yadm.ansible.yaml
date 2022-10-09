@@ -1,0 +1,18 @@
+---
+- name: Set up YADM
+  hosts: localhost
+  connection: local
+  tags:
+    - yadm
+
+  tasks:
+    - name: Initialize YADM
+      ansible.builtin.command:
+        cmd: "yadm clone {{ yadm_repo }}"
+      args:
+        creates: "{{ lookup('env', 'HOME') }}/.local/share/yadm/repo.git"
+
+    - name: Ensure YADM is up-to-date
+      ansible.builtin.command:
+        cmd: yadm pull
+      changed_when: false

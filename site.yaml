@@ -41,3 +41,8 @@
   ansible.builtin.import_playbook: github.ansible.yaml
   tags:
     - github
+
+- name: Set up YADM
+  ansible.builtin.import_playbook: yadm.ansible.yaml
+  tags:
+    - yadm

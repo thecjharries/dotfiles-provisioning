@@ -3,3 +3,4 @@ all:
     localhost:
       ansible_connection: local
       username: cjharries
+      yadm_repo: git@github.com:thecjharries/dotfiles-yadm.git

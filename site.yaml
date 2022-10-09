@@ -36,3 +36,8 @@
   ansible.builtin.import_playbook: zsh.ansible.yaml
   tags:
     - zsh
+
+- name: Configure GitHub
+  ansible.builtin.import_playbook: github.ansible.yaml
+  tags:
+    - github

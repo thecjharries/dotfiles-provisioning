@@ -24,9 +24,11 @@ packages:
   - neovim
   - nerd-fonts-droid-sans-mono
   - nerd-fonts-fira-code
+  - nerd-fonts-inconsolata
   - nerd-fonts-jetbrains-mono
   - nerd-fonts-mononoki
   - nerd-fonts-roboto-mono
+  - noto-fonts-emoji
   - podman
   - python
   - python-pip

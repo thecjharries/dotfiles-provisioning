@@ -5,7 +5,7 @@
 
   tasks:
     - name: Upgrade pip
-      ansible.builtin.pip:
+      ansible.builtin.pip: # noqa package-latest
         name: pip
         state: latest
       tags:

@@ -8,6 +8,7 @@ packages:
   - cri-o
   - crictl
   - direnv
+  - dust
   - dnsmasq
   - exa
   - firefox

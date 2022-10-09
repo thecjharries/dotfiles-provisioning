@@ -6,8 +6,12 @@
   tasks:
     - name: Ensure user is configured properly
       ansible.builtin.user:
+        append: true
         name: "{{ username }}"
         group: "{{ username }}"
+        groups:
+          - sys
+          - wheel
         shell: "/usr/bin/zsh"
       become: true
       tags:

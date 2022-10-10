@@ -7,9 +7,12 @@ packages:
   - cri-o
   - crictl
   - direnv
-  - driftctl
-  - dust
+  - dmenu
   - dnsmasq
+  - driftctl
+  - dropbox
+  - dropbox-cli
+  - dust
   - exa
   - firefox
   - flameshot
@@ -40,6 +43,7 @@ packages:
   - podman
   - python
   - python-pip
+  - python-gpgme
   - qemu-desktop
   - ripgrep
   - seahorse
@@ -56,6 +60,9 @@ packages:
   - visual-studio-code-bin
   - which
   - xclip
+  - xdotool
+  - xorg-xev
+  - xorg-xrandr
   - xsel
   - yadm
   - zellij

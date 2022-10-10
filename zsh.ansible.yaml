@@ -25,3 +25,12 @@
         dest: "{{ zsh_plugins.path }}/zsh-autocomplete"
       tags:
         - zsh
+
+    - name: Install zsh-syntax-highlighting
+      ansible.builtin.git: # noqa latest
+        recursive: true
+        version: master
+        repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+        single_branch: true
+        update: true
+        dest: "{{ zsh_plugins.path }}/zsh-syntax-highlighting"

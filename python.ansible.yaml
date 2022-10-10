@@ -18,6 +18,9 @@
         extra_args: --user
         name:
           - asciinema
+          - c7n
+          - c7n_azure
+          - c7n_gcp
           - checkov
           - pipenv
           - pre-commit

@@ -21,8 +21,10 @@ packages:
   - jetbrains-toolbox
   - jq
   - k9s
+  - kompose
   - kubectl
   - kubectx
+  - kustomize
   - lastpass-cli
   - libvirt
   - minikube

@@ -84,6 +84,14 @@
         cmd: podman system migrate
       changed_when: false
 
+    - name: Install Helm plugins
+      ansible.builtin.command:
+        cmd: "helm plugin install {{ item }}"
+      changed_when: false
+      loop:
+        - https://github.com/adamreese/helm-env
+        - https://github.com/databus23/helm-diff
+
     # TODO: Add minikube config?
     # minikube config set driver kvm2
     # minikube config set container-runtime cri-o

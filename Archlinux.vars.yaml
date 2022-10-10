@@ -45,6 +45,7 @@ packages:
   - seahorse
   - shellcheck
   - starship
+  - systemd-numlockontty
   - terminator
   - terraform
   - terragrunt

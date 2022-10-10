@@ -59,3 +59,10 @@
   ansible.builtin.command:
     cmd: localectl set-locale LANG=en_US.UTF-8
   changed_when: false
+
+- name: numlock on boot
+  become: true
+  ansible.builtin.systemd:
+    name: numLockOnTty.service
+    enabled: true
+    state: started

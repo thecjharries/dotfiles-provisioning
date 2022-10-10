@@ -22,8 +22,10 @@
           - c7n_azure
           - c7n_gcp
           - checkov
+          - j2cli[yaml]
           - pipenv
           - pre-commit
+          - pyyaml
           - romt
       tags:
         - python

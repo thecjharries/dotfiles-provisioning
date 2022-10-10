@@ -34,3 +34,21 @@
         single_branch: true
         update: true
         dest: "{{ zsh_plugins.path }}/zsh-syntax-highlighting"
+
+    - name: Install zsh-lazyload
+      ansible.builtin.git: # noqa latest
+        recursive: true
+        version: master
+        repo: https://github.com/qoomon/zsh-lazyload.git
+        single_branch: true
+        update: true
+        dest: "{{ zsh_plugins.path }}/zsh-lazyload"
+
+    - name: Instal zsh-defer
+      ansible.builtin.git: # noqa latest
+        recursive: true
+        version: master
+        repo: https://github.com/romkatv/zsh-defer.git
+        single_branch: true
+        update: true
+        dest: "{{ zsh_plugins.path }}/zsh-defer"

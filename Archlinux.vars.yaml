@@ -13,6 +13,7 @@ packages:
   - dropbox
   - dropbox-cli
   - dust
+  - esh
   - exa
   - firefox
   - flameshot

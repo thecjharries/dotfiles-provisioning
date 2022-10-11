@@ -43,3 +43,6 @@ ansible-playbook <subject>.ansible.yaml
   * [kubetail](https://github.com/johanhaleby/kubetail)
   * [vimkubectl](https://github.com/rottencandy/vimkubectl)
   * [LaTeX](https://wiki.archlinux.org/title/TeX_Live)
+* Manage these processes
+  * NetworkManager
+  * DNS resolver

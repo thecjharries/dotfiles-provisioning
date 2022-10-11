@@ -17,6 +17,9 @@
         state: latest
         extra_args: --user
         name:
+          - ansible
+          - ansible-lint
+          - ansible-navigator
           - asciinema
           - c7n
           - c7n_azure

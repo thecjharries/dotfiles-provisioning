@@ -1,6 +1,8 @@
 ---
 packages:
   - act
+  - ansible
+  - ansible-lint
   - atuin
   - bridge-utils
   - cni-plugins

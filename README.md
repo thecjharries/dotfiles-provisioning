@@ -46,3 +46,5 @@ ansible-playbook <subject>.ansible.yaml
 * Manage these processes
   * NetworkManager
   * DNS resolver
+* Fully configure
+  * `flameshot`

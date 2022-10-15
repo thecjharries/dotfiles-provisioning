@@ -16,3 +16,8 @@
       ansible.builtin.command:
         cmd: yadm pull
       changed_when: false
+
+    - name: Reset YADM
+      ansible.builtin.command:
+        cmd: yadm reset --hard
+      changed_when: false

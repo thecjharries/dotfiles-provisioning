@@ -5,6 +5,7 @@ packages:
   - ansible-lint
   - atuin
   - bridge-utils
+  - calibre
   - cni-plugins
   - cri-o
   - crictl
@@ -43,6 +44,7 @@ packages:
   - nerd-fonts-mononoki
   - nerd-fonts-roboto-mono
   - noto-fonts-emoji
+  - obsidian
   - podman
   - python
   - python-pip

@@ -1,17 +1,16 @@
 ---
 packages:
-  # - act
+  - act
   - ansible
   - ansible-lint
   - atuin
-  # - bridge-utils
-  # - cni-plugins
-  # - cri-o
-  # - crictl
+  - bridge-utils
+  - cni-plugins
+  - cri-o
+  - crictl
   - direnv
   - dmenu
-  # - dnsmasq
-  - driftctl
+  - dnsmasq
   - dropbox
   - dropbox-cli
   - dust
@@ -23,18 +22,19 @@ packages:
   - fzf
   - github-cli
   - go
-  # - helm
-  # - iptables-nft
+  - helm
+  - iptables-nft
   - jetbrains-toolbox
   - jq
-  # - k9s
-  # - kompose
-  # - kubectl
-  # - kubectx
-  # - kustomize
+  - jre-openjdk
+  - k9s
+  - kompose
+  - kubectl
+  - kubectx
+  - kustomize
   - lastpass-cli
-  # - libvirt
-  # - minikube
+  - libvirt
+  - minikube
   - neovim
   - nerd-fonts-droid-sans-mono
   - nerd-fonts-fira-code
@@ -43,23 +43,23 @@ packages:
   - nerd-fonts-mononoki
   - nerd-fonts-roboto-mono
   - noto-fonts-emoji
-  # - podman
+  - podman
   - python
   - python-pip
   - python-gpgme
-  # - qemu-desktop
+  - qemu-desktop
   - ripgrep
   - seahorse
   - shellcheck
   - starship
   - systemd-numlockontty
   - terminator
-  # - terraform
-  # - terragrunt
-  # - vagrant
-  # - vde2
+  - terraform
+  - terragrunt
+  - vagrant
+  - vde2
   - vim
-  # - virt-manager
+  - virt-manager
   - visual-studio-code-bin
   - which
   - xclip

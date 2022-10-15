@@ -17,6 +17,14 @@
       tags:
         - user
 
+    - name: Ensure SSH dir exists
+      ansible.builtin.file:
+        path: "/home/{{ username }}/.ssh"
+        state: directory
+        owner: "{{ username }}"
+        group: "{{ username }}"
+        mode: 0700
+
     - name: Generate local ed25519 key
       community.crypto.openssh_keypair:
         owner: "{{ username }}"

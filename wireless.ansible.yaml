@@ -1,0 +1,38 @@
+---
+- name: Configure Intel Wireless card
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Use iwd to manage wireless
+      become: true
+      ansible.builtin.copy:
+        src: files/etc/NetworkManager/conf.d/nm.conf
+        dest: /etc/NetworkManager/conf.d/nm.conf
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+        backup: true
+
+    - name: Turn off power save
+      become: true
+      ansible.builtin.copy:
+        src: files/etc/NetworkManager/conf.d/wifi-powersave.conf
+        dest: /etc/NetworkManager/conf.d/wifi-powersave.conf
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+        backup: true
+
+    - name: Start and enable iwd
+      become: true
+      ansible.builtin.systemd:
+        state: started
+        enabled: true
+        name: iwd.service
+
+    - name: Mask wpa_supplicant
+      become: true
+      ansible.builtin.systemd:
+        state: masked
+        name: wpa_supplicant.service

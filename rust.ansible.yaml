@@ -27,7 +27,7 @@
 
         - name: Install Rust
           ansible.builtin.command:
-            cmd: /tmp/install-rustup
+            cmd: /tmp/install-rustup -y
           args:
             creates: "{{ lookup('env', 'HOME') }}/.cargo/bin/rustup"
 
@@ -40,7 +40,7 @@
     - name: Add necessary components
       ansible.builtin.command:
         argv:
-          - rustup
+          - "{{ lookup('env', 'HOME') }}/.cargo/bin/rustup"
           - component
           - add
           - cargo

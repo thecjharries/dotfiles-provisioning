@@ -20,16 +20,19 @@
           - ansible
           - ansible-lint
           - ansible-navigator
+          - awscli-local
           - asciinema
           - c7n
           - c7n_azure
           - c7n_gcp
           - checkov
           - j2cli[yaml]
+          - localstack
           - pipenv
           - pre-commit
           - pyyaml
           - romt
+          - terraform-local
       tags:
         - python
         - pip

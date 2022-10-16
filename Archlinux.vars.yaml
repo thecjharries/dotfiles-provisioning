@@ -21,6 +21,7 @@ packages:
   - flameshot
   - fuse-overlayfs
   - fzf
+  - gitflow-avh
   - github-cli
   - go
   - helm

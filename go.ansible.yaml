@@ -22,5 +22,6 @@
         - github.com/terraform-docs/terraform-docs@v0.16.0
         - github.com/aquasecurity/tfsec/cmd/tfsec@latest
         - github.com/minamijoyo/tfupdate@latest
+        - github.com/ramya-rao-a/go-outline@latest
         - mvdan.cc/sh/v3/cmd/shfmt@latest
         - github.com/mikefarah/yq/v4@latest

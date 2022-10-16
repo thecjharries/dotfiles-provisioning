@@ -55,3 +55,11 @@
       changed_when: false
       tags:
         - rust
+
+    - name: Install Cargo tools
+      ansible.builtin.command:
+        argv:
+          - "{{ lookup('env', 'HOME') }}/.cargo/bin/cargo"
+          - install
+          - cargo-tarpaulin
+      changed_when: false

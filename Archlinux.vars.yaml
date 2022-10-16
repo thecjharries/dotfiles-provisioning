@@ -52,6 +52,7 @@ packages:
   - python-gpgme
   - qemu-desktop
   - ripgrep
+  - rustup
   - seahorse
   - shellcheck
   - starship

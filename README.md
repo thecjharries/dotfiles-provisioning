@@ -48,3 +48,5 @@ ansible-playbook <subject>.ansible.yaml
   * DNS resolver
 * Fully configure
   * `flameshot`
+* Manage boot and kernel stuff
+  * `ibt=off` for Intel chips

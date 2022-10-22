@@ -16,6 +16,8 @@
         user: "{{ username }}"
         groups:
           - libvirt
+          - vboxusers
+          - docker
 
     - name: Start and enable libvirt
       become: true
@@ -91,6 +93,17 @@
       loop:
         - https://github.com/adamreese/helm-env
         - https://github.com/databus23/helm-diff
+
+    - name: Install important Vagrant plugins
+      ansible.builtin.command:
+        argv:
+          - vagrant
+          - plugin
+          - install
+          - vagrant-libvirt
+          - vagrant-share
+          # - vagrant-vbguest
+      changed_when: false
 
     # TODO: Add minikube config?
     # minikube config set driver kvm2

@@ -1,0 +1,26 @@
+---
+- name: Configure Rust Offline Mirror Tool
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Define the romt directory
+      ansible.builtin.set_fact:
+        romt_dir: "{{ romt_parent | default(lookup('env', 'HOME')) }}/romt"
+
+    - name: Create the romt directory
+      ansible.builtin.file:
+        path: "{{ romt_dir }}/mirror"
+        state: directory
+        mode: 0755
+        owner: "{{ username }}"
+        group: "{{ username }}"
+
+    - name: Clone the romt repository
+      ansible.builtin.git:
+        repo: https://github.com/drmikehenry/romt.git
+        recursive: true
+        version: main
+        single_branch: true
+        update: true
+        dest: "{{ romt_dir }}/romt"

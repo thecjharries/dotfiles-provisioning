@@ -47,10 +47,10 @@
   tags:
     - yadm
 
-- name: Set up containerization stuff
-  ansible.builtin.import_playbook: containers.ansible.yaml
+- name: Set up virtualization stuff
+  ansible.builtin.import_playbook: virtualization.ansible.yaml
   tags:
-    - containers
+    - virtualization
 
 - name: Set up Go
   ansible.builtin.import_playbook: go.ansible.yaml

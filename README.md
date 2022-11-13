@@ -50,3 +50,4 @@ ansible-playbook <subject>.ansible.yaml
   * `flameshot`
 * Manage boot and kernel stuff
   * `ibt=off` for Intel chips
+* [Set up podman](https://github.com/nektos/act/issues/303#issuecomment-882069025)

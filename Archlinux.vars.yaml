@@ -44,7 +44,7 @@ packages:
   - nerd-fonts-jetbrains-mono
   - nerd-fonts-mononoki
   - nerd-fonts-roboto-mono
-  - nodejs
+  - nodejs-lts-hydrogen
   - noto-fonts-emoji
   - npm
   - obsidian

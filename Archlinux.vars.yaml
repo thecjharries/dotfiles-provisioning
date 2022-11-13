@@ -48,6 +48,7 @@ packages:
   - noto-fonts-emoji
   - npm
   - obsidian
+  - packer
   - podman
   - python
   - python-pip

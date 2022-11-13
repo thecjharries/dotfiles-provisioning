@@ -1,3 +1,5 @@
+# See this thread for magic number 524288
+# https://github.com/systemd/systemd/issues/21952#issuecomment-1086945434
 ---
 - name: Configure container stuff
   hosts: localhost
@@ -68,7 +70,7 @@
       ansible.builtin.lineinfile:
         create: true
         state: present
-        line: "{{ username }}:100000:65536"
+        line: "{{ username }}:524288:65536"
         mode: u=rw,g=r,o=r
         owner: root
         group: root
@@ -79,11 +81,11 @@
       ansible.builtin.lineinfile:
         create: true
         state: present
-        line: "{{ username }}:100000:65536"
+        line: "{{ username }}:524288:65536"
         mode: u=rw,g=r,o=r
         owner: root
         group: root
-        path: /etc/subu=gid
+        path: /etc/subgid
 
     - name: Migrate any existing podman containers
       ansible.builtin.command:

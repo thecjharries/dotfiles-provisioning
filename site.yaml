@@ -61,3 +61,8 @@
   ansible.builtin.import_playbook: aws.ansible.yaml
   tags:
     - aws
+
+- name: Set up JavaScript
+  ansible.builtin.import_playbook: javascript.ansible.yaml
+  tags:
+    - javascript

@@ -1,0 +1,14 @@
+---
+- name: Configure JavaScript
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Install global toolchain
+      community.general.npm: # noqa package-latest
+        name: "{{ item }}"
+        global: true
+        state: latest
+      become: true
+      loop:
+        - cdktf-cli

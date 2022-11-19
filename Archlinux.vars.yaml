@@ -6,6 +6,7 @@ packages:
   - atuin
   - bridge-utils
   - calibre
+  - cloud-nuke
   - cni-plugins
   - cri-o
   - crictl

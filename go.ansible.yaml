@@ -25,3 +25,5 @@
         - github.com/ramya-rao-a/go-outline@latest
         - mvdan.cc/sh/v3/cmd/shfmt@latest
         - github.com/mikefarah/yq/v4@latest
+        - github.com/go-delve/delve/cmd/dlv@latest
+        - honnef.co/go/tools/cmd/staticcheck@latest

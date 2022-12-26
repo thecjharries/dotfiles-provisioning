@@ -50,6 +50,8 @@ packages:
   - npm
   - obsidian
   - packer
+  - perl-file-homedir
+  - perl-yaml-tiny
   - podman
   - python
   - python-pip
@@ -64,6 +66,7 @@ packages:
   - terminator
   - terraform
   - terragrunt
+  - texlive-most
   - vagrant
   - vde2
   - vim

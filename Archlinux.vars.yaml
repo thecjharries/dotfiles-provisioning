@@ -53,6 +53,7 @@ packages:
   - perl-file-homedir
   - perl-yaml-tiny
   - podman
+  - postgresql
   - python
   - python-pip
   - python-gpgme

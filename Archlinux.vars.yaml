@@ -13,6 +13,8 @@ packages:
   - direnv
   - dmenu
   - dnsmasq
+  - docker
+  - docker-compose
   - dropbox
   - dropbox-cli
   - dust

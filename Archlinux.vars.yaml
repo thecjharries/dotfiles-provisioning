@@ -60,6 +60,7 @@ packages:
   - python-pip
   - python-gpgme
   - qemu-desktop
+  - redis
   - ripgrep
   - rustup
   - seahorse

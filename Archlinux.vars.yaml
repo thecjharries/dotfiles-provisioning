@@ -48,6 +48,7 @@ packages:
   - nerd-fonts-mononoki
   - nerd-fonts-roboto-mono
   - nodejs-lts-hydrogen
+  - nodejs-markdownlint-cli
   - noto-fonts-emoji
   - npm
   - obsidian
@@ -62,7 +63,6 @@ packages:
   - qemu-desktop
   - redis
   - ripgrep
-  - ruby-mdl
   - rustup
   - seahorse
   - shellcheck

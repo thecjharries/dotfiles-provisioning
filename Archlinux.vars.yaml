@@ -10,6 +10,8 @@ packages:
   - cni-plugins
   - cri-o
   - crictl
+  - cups
+  - cups-pdf
   - direnv
   - dmenu
   - dnsmasq

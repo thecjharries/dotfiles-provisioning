@@ -61,5 +61,7 @@
         argv:
           - "{{ lookup('env', 'HOME') }}/.cargo/bin/cargo"
           - install
+          - --force
           - cargo-tarpaulin
+          - cargo-make
       changed_when: false

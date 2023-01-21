@@ -43,17 +43,12 @@ packages:
   - libvirt
   - minikube
   - neovim
-  - nerd-fonts-droid-sans-mono
-  - nerd-fonts-fira-code
-  - nerd-fonts-inconsolata
-  - nerd-fonts-jetbrains-mono
-  - nerd-fonts-mononoki
-  - nerd-fonts-roboto-mono
   - nodejs-lts-hydrogen
   - nodejs-markdownlint-cli
   - noto-fonts-emoji
   - npm
   - obsidian
+  - otf-droid-nerd
   - packer
   - perl-file-homedir
   - perl-yaml-tiny
@@ -74,6 +69,15 @@ packages:
   - terraform
   - terragrunt
   - texlive-most
+  - ttf-bitstream-vera
+  - ttf-dejavu
+  - ttf-firacode-nerd
+  - ttf-inconsolata-nerd
+  - ttf-jetbrains-mono-nerd
+  - ttf-liberation
+  - ttf-mononoki-nerd
+  - ttf-opensans
+  - ttf-roboto-mono-nerd
   - vagrant
   - vde2
   - vim

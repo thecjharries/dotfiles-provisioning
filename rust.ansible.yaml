@@ -64,4 +64,5 @@
           - --force
           - cargo-tarpaulin
           - cargo-make
+          - sccache
       changed_when: false
